@@ -1,0 +1,36 @@
+rails new blog
+rails generate controller Welcome index
+root 'welcome#index'
+
+rails generate controller Articles
+
+rails generate model Article title:string text:text
+rails db:migrate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
