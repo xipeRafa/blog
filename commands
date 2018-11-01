@@ -7,6 +7,11 @@ rails generate controller Articles
 rails generate model Article title:string text:text
 rails db:migrate
 
+rails generate model Comment commenter:string body:text article:references
+rake db:migrate
+
+rails generate controller Comments
+
 
 
 
