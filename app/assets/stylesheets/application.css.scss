@@ -108,6 +108,7 @@ p {
 
 a {
     color: #1eaedb;
+    text-decoration: none;
 }
 
 a:hover {
@@ -211,7 +212,7 @@ select:focus {
 label,
 legend {
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: .5rem;
     font-weight: 600;
 }
 
@@ -273,7 +274,8 @@ pre>code {
     white-space: pre;
 }
 
-th,
+
+/* th,
 td {
     padding: 12px 15px;
     text-align: center;
@@ -292,7 +294,7 @@ td:first-child {
 th:last-child,
 td:last-child {
     padding-right: 0;
-}
+} */
 
 button,
 .button {
@@ -310,13 +312,100 @@ pre,
 blockquote,
 dl,
 figure,
-table,
 p,
 ul,
 ol,
 form {
     margin-bottom: .5rem;
     margin-top: .5rem;
+}
+
+
+/*----------table responsive------*/
+
+table {
+    width: 100%;
+    background: transparent;
+    margin: 1.25em 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table tr th,
+table tr td {
+    padding: 0.5625em 0.625em;
+    font-size: 0.875em;
+    color: #222222;
+    border: 1px solid #dddddd;
+}
+
+table tr.even,
+table tr.alt,
+table tr:nth-of-type(even) {
+    background: transparent;
+}
+
+@media only screen and (max-width: 768px) {
+    table.resp,
+    .resp thead,
+    .resp tbody,
+    .resp tr,
+    .resp th,
+    .resp td,
+    .resp caption {
+        display: block;
+    }
+    table.resp {
+        border: none
+    }
+    .resp thead tr {
+        display: none;
+    }
+    .resp tbody tr {
+        margin: 1em 0;
+    }
+    .resp td {
+        border: none;
+        border-bottom: 1px solid #dddddd;
+        position: relative;
+        padding-left: 45%;
+        text-align: center;
+    }
+    .resp tr td:last-child {
+        border-bottom: 1px double #dddddd;
+    }
+    .resp tr:last-child td:last-child {
+        border: none;
+    }
+    .resp td:before {
+        position: absolute;
+        top: 16px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: center;
+        font-weight: bold;
+    }
+    /*-----reemplazaremos el contenido de los <th>----*/
+    td:nth-of-type(1):before {
+        content: "Title";
+    }
+    td:nth-of-type(2):before {
+        content: "Text";
+    }
+    td:nth-of-type(3):before {
+        content: "Show";
+    }
+    td:nth-of-type(4):before {
+        content: "Edit";
+    }
+    td:nth-of-type(5):before {
+        content: "Delete";
+    }
+    /*  td:nth-of-type(6):before {
+        content: "Precio";
+    } */
 }
 
 
@@ -344,4 +433,9 @@ form {
 
 @media (min-width: 1200px) {}
 
-form {}
+
+/* @media screen and (max-width: 700px) {
+    table {
+        display: block;
+        overflow-x: auto;
+    }}*/
