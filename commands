@@ -1,18 +1,54 @@
+https://guides.rubyonrails.org/getting_started.html#getting-up-and-running
+
+
 rails new blog
 rails generate controller Welcome index
 root 'welcome#index'
 
 rails generate controller Articles
+    
+routes.rb
+  get 'welcome/index'
+ 
+  resources :articles
+ 
+  root 'welcome#index'
+
 
 rails generate model Article title:string text:text
 rails db:migrate
+   
+
+   
+   
 
 rails generate model Comment commenter:string body:text article:references
 rake db:migrate
 
 rails generate controller Comments
 
+------------------------------------------------------
 
+class Article < ApplicationRecord
+    has_many :comments, dependent: :destroy
+    validates :title, presence: true,
+    length: { minimum: 5 }
+end
+
+class Comment < ApplicationRecord
+  belongs_to :article
+end
+
+Rails.application.routes.draw do
+  get 'welcome/index'
+
+
+  resources :articles do
+    resources :comments
+  end
+
+  root 'welcome#index'
+end
 
 
 
